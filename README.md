@@ -1,4 +1,5 @@
 # prompteng-kit
-One of the safest ways to do prompt and context engineering. Comes with a zip folder in the form of a ".skill" file for loading into AI platforms.
+
+One of the safest ways of doing prompt and context engineering. Includes a zip folder as a ".skill" file for loading into AI platforms.
 
 >prompteng is a deliberate misspelling of prompting. 
