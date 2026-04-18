@@ -4,7 +4,7 @@ Prompt engineering configuration skill for AI agents and orchestrators.
 
 Skill file that loads at chat start, codifying security rules, session initialization, the 7-Part Prompt Framework, and session-persistence protocols. Readable by both humans and AI sub-agents. Intended for software engineers and the agents they orchestrate.
 
-> `prompteng` is a deliberate misspelling of "prompting," alluding to prompt engineering.
+> `prompteng` is a deliberate misspelling of "prompting", alluding to prompt engineering.
 
 ## Contents
 
@@ -47,7 +47,7 @@ Aligned to `claude.md v1.5.2+` style conventions.
 
 ## Changelog
 
-**v2.0.0** — directive blocks restyled (`[RULES]` / `[ACTIONS]` / `[HUMAN ACTIONS]`) to match `claude.md` v1.5.2; added References section; metadata expanded with `parent` + `references` rows. Content unchanged from v1.5.0.
+**v2.0.0** — directive sections restyled (`[RULES]` / `[ACTIONS]` / `[HUMAN ACTIONS]`) to match `claude.md` v1.5.2; added References section; metadata expanded with `parent` + `references` rows. Content unchanged from v1.5.0.
 
 ## License
 
