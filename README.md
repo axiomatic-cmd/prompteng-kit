@@ -1,6 +1,6 @@
 # prompteng
 
-**v2.0.0** — prompt engineering configuration skill for AI agents and orchestrators.
+Prompt engineering configuration skill for AI agents and orchestrators.
 
 Skill file that loads at chat start, codifying security rules, session initialization, the 7-Part Prompt Framework, and session-persistence protocols. Readable by both humans and AI sub-agents. Intended for software engineers and the agents they orchestrate.
 
@@ -51,4 +51,4 @@ Aligned to `claude.md v1.5.2+` style conventions.
 
 ## License
 
-MIT. See [`LICENSE`](./LICENSE).
+GPL-3.0 | See [`LICENSE`](./LICENSE).
