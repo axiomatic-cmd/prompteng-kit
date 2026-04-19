@@ -42,7 +42,11 @@ Avilable in - **[ecological-ai/user-prefs](https://github.com/ecological-ai/user
 
 ## Style Convention
 
-Directives use `[RULES]` / `[ACTIONS]` / `[HUMAN ACTIONS]` section headers with numbered lists. Shared across all 4 peer skills.
+Directives use the following section headers with numbered lists, shared across all 4 peer skills: 
+
+- `[RULES]` 
+- `[ACTIONS]` 
+- `[HUMAN ACTIONS]`
 
 ## Version
 
@@ -53,4 +57,4 @@ v2.0.0 — modular peer references, no bundled sub-skills.
 See [LICENSE](./LICENSE).
 
 ---
-README.md v1.1.0 - Human Approved
+README.md v2.0.0 - Human Approved
