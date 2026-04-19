@@ -2,53 +2,55 @@
 
 Prompt engineering configuration skill for AI agents and orchestrators.
 
-Skill file that loads at chat start, codifying security rules, session initialization, the 7-Part Prompt Framework, and session-persistence protocols. Readable by both humans and AI sub-agents. Intended for software engineers and the agents they orchestrate.
-
 > `prompteng` is a deliberate misspelling of "prompting", alluding to prompt engineering.
 
-## Contents
+## Introduction
+
+Session init, security rules, 7-part prompt framework, persistence rules.
+
+Core skill in a family of 4 interconnected standalone skills. Load first; loads peers on demand.
+
+## Set of files
 
 | File | Purpose |
 |---|---|
-| `SKILL.md` | Load-order index. Points to core skill + peer skills. |
-| `prompteng-SKILL.md` | Core configuration — security, session init, 7-Part framework, persistence rules. |
-| `LICENSE` | MIT. |
+| `SKILL.md` | Router — load order, peer references |
+| `prompteng-SKILL.md` | Content — rules, framework, checklists |
+| `prompteng.skill` | Packaged archive for upload to SKILL directory |
 
 ## Install
 
-Two deployment targets:
+Claude.ai: upload `prompteng.skill` via skill settings. Or add `prompteng-SKILL.md` contents to Personal Preferences (`Settings > General`).
 
-**Claude.ai web / desktop / mobile** — 
+Claude Code: drop folder into `~/.claude/skills/prompteng/`.
 
-**Claude Code / API** — 
+## Peer Skills
 
-## Relationship to `claude.md`
+Load on demand when task requires:
 
-`prompteng` governs prompt construction and session lifecycle. `claude.md` ([ecological-ai/user-prefs](https://github.com/ecological-ai/user-prefs)) governs context-window efficiency and memory precedence. The two are companion skills — `prompteng` §2.5 references `claude.md` §7 as the canonical source for the memory trust model.
+- **[captureng](https://github.com/ecological-ai/captureng)** — session-knowledge capture, CHECKPOINT mode
+- **[packageng](https://github.com/ecological-ai/packageng)** — `.skill` file validation + packaging
+- **[safe-skill-creator](https://github.com/ecological-ai/safe-skill-creator)** — skill design + iteration
 
-## Peer skills (load on demand)
+Also references `trusted-hosts.md` — bare URL allowlist config, not a skill.
 
-- `trusted-hosts.md` — URL allowlist for outbound API calls.
-- `captureng-SKILL.md` — session-knowledge capture; checkpoints.
-- `packageng-SKILL.md` — `.skill` file validation and distribution.
-- `safe-skill-creator-SKILL.md` — skill design and iteration.
+## Companion File
 
-Peers are standalone — not bundled in this repo.
+`claude.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
 
-## Directive conventions
+Avilable in - **[ecological-ai/user-prefs](https://github.com/ecological-ai/user-prefs)**
 
-Three block types appear throughout `prompteng-SKILL.md`:
+## Style Convention
 
-- **`[RULES]`** — enforceable by agents at runtime.
-- **`[ACTIONS]`** — agent-executed steps.
-- **`[HUMAN ACTIONS]`** — require human action in the platform UI; agents skip silently.
+Directives use `[RULES]` / `[ACTIONS]` / `[HUMAN ACTIONS]` section headers with numbered lists. Shared across all 4 peer skills.
 
-Aligned to `claude.md v1.5.2+` style conventions.
+## Version
 
-## Changelog
-
-**v2.0.0** — directive sections restyled (`[RULES]` / `[ACTIONS]` / `[HUMAN ACTIONS]`) to match `claude.md` v1.5.2; added References section; metadata expanded with `parent` + `references` rows. Content unchanged from v1.5.0.
+v2.0.0 — modular peer references, no bundled sub-skills.
 
 ## License
 
-GPL-3.0 | See [`LICENSE`](./LICENSE).
+See [LICENSE](./LICENSE).
+
+---
+README.md v1.1.0 - Human Approved
