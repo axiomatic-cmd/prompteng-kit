@@ -34,11 +34,14 @@ Load on demand when task requires:
 
 Also references `trusted-hosts.md` — bare URL allowlist config, not a skill.
 
-## Companion File
+## Companion Files
 
-`claude.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
+Available in - **[ecological-ai/user-prefs](https://github.com/ecological-ai/user-prefs)**
 
-Avilable in - **[ecological-ai/user-prefs](https://github.com/ecological-ai/user-prefs)**
+- `claude.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
+
+- `trusted-hosts.md` — project-wide allow-list for egress into internet via system tools like `bash`.
+
 
 ## Style Convention
 
