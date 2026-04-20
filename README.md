@@ -20,9 +20,11 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 
 ## Install
 
-Claude.ai: upload `prompteng.skill` via skill settings. Or add `prompteng-SKILL.md` contents to Personal Preferences (`Settings > General`).
+Claude.ai: upload `prompteng.skill` via skill settings (recommended). Or add `prompteng-SKILL.md` contents to Personal Preferences via `Settings > General`.
 
-Claude Code: drop folder into `~/.claude/skills/prompteng/`.
+Claude Code: copy contents of this folder into `~/.claude/skills/prompteng/`.
+
+Other platforms: adapt this set of files to your `harness+model`. Star or Fork the git repo if you like. 
 
 ## Peer Skills
 
@@ -32,11 +34,9 @@ Load on demand when task requires:
 - **[packageng](https://github.com/ecological-codes/packageng)** — `.skill` file validation + packaging
 - **[safe-skill-creator](https://github.com/ecological-codes/safe-skill-creator)** — skill design + iteration
 
-Also references `trusted-hosts.md` — bare URL allowlist config, not a skill.
-
 ## Companion Files
 
-Available in - **[ecological-ai/user-prefs](https://github.com/ecological-codes/user-prefs)**
+Available in - **[ecological-codes/user-prefs](https://github.com/ecological-codes/user-prefs)**
 
 - `claude.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
 
