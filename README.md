@@ -27,6 +27,11 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 
 - **Other platforms:** adapt this set of files to your `harness+model`. Star or Fork the git repo if you like. 
 
+## When It Triggers
+
+- Unless loaded explicitly, it will not trigger as required or will under-trigger. 
+- If the `claude.md` companion file is installed, this skill will be loaded at beginning of every new session.  
+
 ## Peer Skills
 
 Load on demand when task requires:
@@ -43,7 +48,6 @@ Available in - **[ecological-codes/user-prefs](https://github.com/ecological-cod
 
 - `trusted-hosts.md` — project-wide allow-list for egress into internet via system tools like `bash`.
 
-
 ## Style Convention
 
 Directives use the following section headers with numbered lists, shared across all 4 peer skills: 
@@ -52,13 +56,9 @@ Directives use the following section headers with numbered lists, shared across 
 - **[ACTIONS]** — autonomous steps agent executes in normal workflow.
 - **[HUMAN ACTIONS]** — UI actions; agent skips, cannot delegate.
 
-## Version
-
-v2.0.0 — modular peer references, no bundled sub-skills.
-
 ## License
 
 See [LICENSE](./LICENSE).
 
 ---
-README.md v2.0.0 - Human Approved
+README.md v2.1.0 - Human Approved
