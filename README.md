@@ -28,15 +28,15 @@ Claude Code: drop folder into `~/.claude/skills/prompteng/`.
 
 Load on demand when task requires:
 
-- **[captureng](https://github.com/ecological-ai/captureng)** — session-knowledge capture, CHECKPOINT mode
-- **[packageng](https://github.com/ecological-ai/packageng)** — `.skill` file validation + packaging
-- **[safe-skill-creator](https://github.com/ecological-ai/safe-skill-creator)** — skill design + iteration
+- **[captureng](https://github.com/ecological-codes/captureng)** — session-knowledge capture, CHECKPOINT mode
+- **[packageng](https://github.com/ecological-codes/packageng)** — `.skill` file validation + packaging
+- **[safe-skill-creator](https://github.com/ecological-codes/safe-skill-creator)** — skill design + iteration
 
 Also references `trusted-hosts.md` — bare URL allowlist config, not a skill.
 
 ## Companion Files
 
-Available in - **[ecological-ai/user-prefs](https://github.com/ecological-ai/user-prefs)**
+Available in - **[ecological-ai/user-prefs](https://github.com/ecological-codes/user-prefs)**
 
 - `claude.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
 
