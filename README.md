@@ -20,11 +20,11 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 
 ## Install
 
-Claude.ai: upload `prompteng.skill` via skill settings (recommended). Or add `prompteng-SKILL.md` contents to Personal Preferences via `Settings > General`.
+- Claude.ai: upload `prompteng.skill` via skill settings (recommended). Or add `prompteng-SKILL.md` contents to Personal Preferences via `Settings > General`.
 
-Claude Code: copy contents of this folder into `~/.claude/skills/prompteng/`.
+- Claude Code: copy contents of this folder into `~/.claude/skills/prompteng/`.
 
-Other platforms: adapt this set of files to your `harness+model`. Star or Fork the git repo if you like. 
+- Other platforms: adapt this set of files to your `harness+model`. Star or Fork the git repo if you like. 
 
 ## Peer Skills
 
