@@ -17,6 +17,7 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 | `SKILL.md` | Router — load order, peer references |
 | `prompteng-SKILL.md` | Content — rules, framework, checklists |
 | `prompteng.skill` | Packaged archive for upload to SKILL directory |
+| `README.md` | Explanatory instructions and overview for this software package |
 
 ## Install
 
@@ -47,9 +48,9 @@ Available in - **[ecological-codes/user-prefs](https://github.com/ecological-cod
 
 Directives use the following section headers with numbered lists, shared across all 4 peer skills: 
 
-- `[RULES]` 
-- `[ACTIONS]` 
-- `[HUMAN ACTIONS]`
+- **[RULES]** — enforceable constraints applied at runtime.
+- **[ACTIONS]** — autonomous steps agent executes in normal workflow.
+- **[HUMAN ACTIONS]** — UI actions; agent skips, cannot delegate.
 
 ## Version
 
