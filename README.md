@@ -27,6 +27,20 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 
 - **Other platforms:** adapt this set of files to your `harness+model`. Star or Fork the git repo if you like. 
 
+## Quickstart
+
+**Step 1 — Upload.** In Claude.ai → Project Knowledge → upload `prompteng-SKILL.md`.
+
+**Step 2 — Init session.** First message:
+```
+Initialize session as per claude.md
+```
+Agent loads skill, outputs UTC timestamp, proposes chat title, initialises session file registry.
+
+**Step 3 — Verify.** Confirm `prompteng-SKILL.md` appears in registry table with MD5 + token cost. If missing → re-upload + retry.
+
+> **Claude Code:** place `prompteng-SKILL.md` in `.claude/` or project root, reference in `CLAUDE.md`. Same init message.
+
 ## When It Triggers
 
 - Unless loaded explicitly, it will not trigger as required or will under-trigger. 
