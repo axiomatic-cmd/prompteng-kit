@@ -1,9 +1,12 @@
 ---
-id: prompteng
-version: 2.0.0
-scope: session · agent · orchestrator
-parent: claude.md
-peers: captureng, packageng, safe-skill-creator, trusted-hosts
+name: prompteng
+version: 2.1.0
+description: >
+  Core prompt engineering configuration. Defines security rules, session
+  initialization, 7-part prompt framework, persistence formats. Triggers:
+  session start, new chat, project init, skill creation. Phrases:
+  "initialize session", "set up project", "session security rules",
+  "prompt framework", "persist session knowledge".
 ---
 
 # prompteng
@@ -15,6 +18,14 @@ Prompt engineering skill. Loaded at session start. Readable by human + agent.
 **How to read:**
 - Human: §0–§8. `[HUMAN ACTIONS]` = UI action. Paste `claude.md` into Personal Preferences.
 - Agent: parse + enforce `[RULES]` and `[ACTIONS]`. Skip `[HUMAN ACTIONS]`. §5 = prompt template.
+
+## Identity
+
+| Field | Value |
+|---|---|
+| `scope` | session · agent · orchestrator |
+| `parent` | `claude.md` |
+| `peers` | `captureng`, `packageng`, `safe-skill-creator`, `trusted-hosts` |
 
 ---
 
@@ -357,4 +368,4 @@ Customized prompt-engineering settings, frameworks, and skill definitions create
 
 ---
 
-*prompteng-SKILL.md v2.0.0 — content file. See `SKILL.md` for router.*
+*prompteng-SKILL.md v2.1.0 — content file. See `SKILL.md` for router.*
