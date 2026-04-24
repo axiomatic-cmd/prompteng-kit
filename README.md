@@ -18,6 +18,7 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 | `prompteng-SKILL.md` | Content — rules, framework, checklists |
 | `references/prompteng-examples.md` | Worked examples for the 7-part prompt framework (§5) |
 | `prompteng.skill` | Packaged archive for upload to SKILL directory |
+| `.github/workflows/build-skill.yml` | CI workflow — auto-builds and publishes `prompteng.skill` on push |
 | `README.md` | Explanatory instructions and overview for this software package |
 
 ## Install
@@ -73,7 +74,7 @@ Directives use the following section headers with numbered lists, shared across 
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](./LICENSE). (C) Copyright 2026 - Sameer Khan - Various and Several Rights Reserved.
 
 ---
-README.md v2.2.0 - Human Approved
+README.md v2.3.0 - Human Approved
