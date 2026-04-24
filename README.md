@@ -16,6 +16,7 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 |---|---|
 | `SKILL.md` | Router — load order, peer references |
 | `prompteng-SKILL.md` | Content — rules, framework, checklists |
+| `references/prompteng-examples.md` | Worked examples for the 7-part prompt framework (§5) |
 | `prompteng.skill` | Packaged archive for upload to SKILL directory |
 | `README.md` | Explanatory instructions and overview for this software package |
 
@@ -37,7 +38,7 @@ Initialize session as per claude.md
 ```
 Agent loads skill, outputs UTC timestamp, proposes chat title, initialises session file registry.
 
-**Step 3 — Verify.** Confirm `prompteng-SKILL.md` appears in registry table with MD5 + token cost. If missing → re-upload + retry.
+**Step 3 — Verify.** Confirm `prompteng-SKILL.md` appears in registry table with BLAKE3 + token cost. If missing → re-upload + retry.
 
 > **Claude Code:** place `prompteng-SKILL.md` in `.claude/` or project root, reference in `CLAUDE.md`. Same init message.
 
@@ -75,4 +76,4 @@ Directives use the following section headers with numbered lists, shared across 
 See [LICENSE](./LICENSE).
 
 ---
-README.md v2.1.0 - Human Approved
+README.md v2.2.0 - Human Approved
