@@ -6,7 +6,7 @@ description: >
   peer skills (captureng, packageng, safe-skill-creator, trusted-hosts) by path
   but does not bundle them.
 metadata:
-  version: "2.0.0"
+  version: "2.2.0"
   maintainer: "Human user"
   peers:
     - "trusted-hosts/trusted-hosts.md — URL allowlist (standalone config)"
