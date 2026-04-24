@@ -238,84 +238,16 @@ Seven optional fields. Omit when genuinely N/A.
 | **Audience** | Consumer: individual, team, or downstream agent. |
 | **Format** | File type, structure, style (Markdown report, JSON, list, prose). |
 
-### 5.2 Example — Generic
+### 5.2 Examples
 
-Scenario: researcher producing structured lit summary for human + downstream agent.
+See [`references/prompteng-examples.md`](references/prompteng-examples.md):
 
-```
-Task:
-Structured summary of top 5 relevant findings from provided articles.
+| § | Domain | Scenario |
+|---|---|---|
+| 1 | Generic | Research synthesis — structured lit summary for human + downstream agent |
+| 2 | Software Engineering | Code review pipeline — PR diff analysis delegated via orchestrator |
 
-Context:
-Research team synthesizing recent publications. Mixed human + agent
-downstream reporting pipeline. Academic research synthesis.
-
-User-Role:
-Research lead. Outputs readable by non-specialists, parseable by
-agents without preprocessing.
-
-Standards:
-- Each finding: 1–2 sentences.
-- Claims traceable to source (author, year).
-- No inference beyond sources.
-- Flag conflicts explicitly.
-- Reading-level: general professional (no unexplained jargon).
-
-Tone: neutral, precise, informative. No advocacy.
-
-Audience:
-Primary: research lead + non-specialist stakeholders.
-Secondary: summarization sub-agents.
-
-Format: Markdown. Numbered list. Source + Conflicts fields per entry.
-3-sentence executive summary at top.
-```
-
-### 5.3 Example — Software Engineering
-
-Scenario: lead engineer prompts orchestrator to delegate code-review sub-tasks, enforce standards, produce report for engineers + documentation agent.
-
-```
-Task:
-Analyze PR diff for correctness, security, standards adherence.
-Produce structured review report for team + documentation agent.
-
-Context:
-Semi-automated code review pipeline. Engineers submit PRs; orchestrator
-delegates to sub-agents (security, style, logic). Consolidated into
-single report. Python backend, cloud deploy, trunk-based dev.
-
-User-Role:
-Lead engineer + pipeline architect. Responsible for production
-correctness + security. Maintainer of this prompteng.md. Sub-agents
-operate under delegated authority, bound by §2 security and §6
-persistence rules.
-
-Standards:
-- eval() / exec() / dynamic exec → HIGH severity.
-- Hardcoded credentials / secrets → CRITICAL.
-- Functions > 50 lines or cyclomatic > 10 → style violation.
-- All findings: exact file + line.
-- No out-of-scope suggestions.
-- Distinguish blocking vs advisory.
-- Idempotent: same diff → identical output.
-
-Tone: technical, precise. Engineering terms without explanation.
-No hedging on blocking findings.
-
-Audience:
-Primary: engineers doing final pre-merge review.
-Secondary: documentation agent ingesting findings for changelog +
-security audit log.
-
-Format:
-JSON. Top keys: "summary", "blocking_issues", "advisory_issues",
-"security_findings". Issue object: "severity"
-(CRITICAL|HIGH|MEDIUM|LOW), "file", "line", "description",
-"suggested_fix". "summary" = plain text, ≤3 sentences, changelog-ready.
-```
-
-Sub-agent notes:
+**Sub-agent notes** (apply to all examples):
 - `Standards` = machine-enforceable checklist. Each item = discrete, testable assertion.
 - `Format` = JSON schema contract. Output must conform for downstream ingestion.
 - `User-Role` delegates authority + references this file by section. Cross-refs are binding constraints.
@@ -368,4 +300,4 @@ Customized prompt-engineering settings, frameworks, and skill definitions create
 
 ---
 
-*prompteng-SKILL.md v2.1.0 — content file. See `SKILL.md` for router.*
+*prompteng-SKILL.md v2.2.0 — content file. See `SKILL.md` for router. Examples → `references/prompteng-examples.md`.*
