@@ -16,7 +16,7 @@ Prompt engineering skill. Loaded at session start. Readable by human + agent.
 **Audience:** software engineers working with AI, and the agents or sub-agents they orchestrate.
 
 **How to read:**
-- Human: §0–§8. `[HUMAN ACTIONS]` = UI action. Paste `claude.md` into Personal Preferences.
+- Human: §0–§8. `[HUMAN ACTIONS]` = UI action. Paste `agent.md` into Personal Preferences.
 - Agent: parse + enforce `[RULES]` and `[ACTIONS]`. Skip `[HUMAN ACTIONS]`. §5 = prompt template.
 
 ## Identity
@@ -24,7 +24,7 @@ Prompt engineering skill. Loaded at session start. Readable by human + agent.
 | Field | Value |
 |---|---|
 | `scope` | session · agent · orchestrator |
-| `parent` | `claude.md` |
+| `parent` | `agent.md` |
 | `peers` | `captureng`, `packageng`, `safe-skill-creator`, `trusted-hosts` |
 
 ---
@@ -141,13 +141,13 @@ Partial knowledge capture before completion. Records work, state, resume plan.
 
 ### 2.5 Memory Precedence
 
-Governed by `claude.md` §7 (four-tier model: Short-Term · Long-Term · Selective · Latent; precedence; canonization; hygiene). Full rules, canonical thresholds, and conflict-surfacing format defined there. 
+Governed by `agent.md` §3 (tier table + precedence rules). Conflict surfacing, canonization, hygiene detail in `claude-sp-guards.md` §1–§3.
 
-prompteng inherits patterns from claude.md configs.
+prompteng inherits patterns from agent.md.
 
 ### 2.6 Prompt Cache Alignment
 
-Platform applies prompt caching automatically. Every message re-transmits: tools + system prompt + Personal Preferences (`claude.md`) + project instructions + history. Cache stores prefix computation; reused at ~10% input cost. **TTL: 5 min.** Gaps over 5 min → cache expires; next message pays full write.
+Platform applies prompt caching automatically. Every message re-transmits: tools + system prompt + Personal Preferences (`agent.md`) + project instructions + history. Cache stores prefix computation; reused at ~10% input cost. **TTL: 5 min.** Gaps over 5 min → cache expires; next message pays full write.
 
 Prefix order: **tools → system prompt → messages**. Earliest + stable content benefits most.
 
@@ -157,9 +157,9 @@ Prefix order: **tools → system prompt → messages**. Earliest + stable conten
 
 1. No mid-session changes to tools, system instructions, or tool list. Invalidates entire cache.
 
-1. `claude.md` + project instructions ride system-prompt cache free after first message. Correct location for system-wide directives.
+1. `agent.md` + project instructions ride system-prompt cache free after first message. Correct location for system-wide directives.
 
-1. File registry + re-read protocol (`claude.md` §1–§3) keep cacheable prefix stable.
+1. File registry + re-read protocol (`agent.md` §1–§2) keep cacheable prefix stable.
 
 **[ACTIONS]**
 
@@ -172,12 +172,12 @@ Prefix order: **tools → system prompt → messages**. Earliest + stable conten
 | # | Who | Action |
 |---|---|---|
 | 1 | HUMAN | **Settings > Privacy**: disable training on sessions. |
-| 2 | HUMAN | **Settings > General**: add Personal Preferences with `claude.md` content. |
+| 2 | HUMAN | **Settings > General**: add Personal Preferences with `agent.md` content. |
 | 3 | HUMAN | Confirm chat in named Project folder. Agent offers one if missing. |
 | 4 | AGENT | Display active settings, env vars, tools as table before substantive output. |
 | 5 | AGENT | Load `trusted-hosts.md` if present. |
 | 6 | AGENT | Load `prompteng.md` if present in project. |
-| 7 | AGENT | After file load + registry init, scan memories for file conflicts. Surface per `claude.md` §7.3. |
+| 7 | AGENT | After file load + registry init, scan memories for file conflicts. Surface per `claude-sp-guards.md` §1. |
 | 8 | HUMAN | Optional: save "always display session settings at startup" preference. |
 
 Ref: Liam Barnes, "How to Set Up ChatGPT, Claude & Gemini for Legal Work" — https://www.youtube.com/watch?v=BP6x_FRwZ3w

@@ -35,7 +35,7 @@ Core skill in a family of 4 interconnected standalone skills. Load first; loads 
 
 **Step 2 — Init session.** First message:
 ```
-Initialize session as per claude.md
+Initialize session as per agent.md
 ```
 Agent loads skill, outputs UTC timestamp, proposes chat title, initialises session file registry.
 
@@ -46,7 +46,7 @@ Agent loads skill, outputs UTC timestamp, proposes chat title, initialises sessi
 ## When It Triggers
 
 - Unless loaded explicitly, it will not trigger as required or will under-trigger. 
-- If the `claude.md` companion file is installed, this skill will be loaded at beginning of every new session.  
+- If the `agent.md` companion file is installed, this skill will be loaded at beginning of every new session.  
 
 ## Peer Skills
 
@@ -60,7 +60,7 @@ Load on demand when task requires:
 
 Available in - **[ecological-codes/user-prefs](https://github.com/ecological-codes/user-prefs)**
 
-- `claude.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
+- `agent.md` — system-wide self-instruction loaded via Personal Preferences. Defines file registry, re-read protocol, memory precedence (4-tier). Paste into `Settings > General > Personal Preferences` for every-session application.
 
 - `trusted-hosts.md` — project-wide allow-list for egress into internet via system tools like `bash`.
 
