@@ -1,6 +1,6 @@
 ---
 name: prompteng
-version: 2.2.0
+version: 2.1.0
 description: >
   Core prompt engineering configuration. Defines security rules, session
   initialization, 7-part prompt framework, persistence formats. Triggers:
@@ -13,7 +13,7 @@ description: >
 
 Prompt engineering skill. Loaded at session start. Readable by human + agent.
 
-**Audience:** software engineers working with AI + agents / sub-agents they orchestrate.
+**Audience:** software engineers working with AI, and the agents or sub-agents they orchestrate.
 
 **How to read:**
 - Human: §0–§8. `[HUMAN ACTIONS]` = UI action. Paste `agent.md` into Personal Preferences.
@@ -83,7 +83,7 @@ Mid-task failure modes: context exhaustion, rate limits, timeouts, network error
 
 1. Monitor context. Below **20%** remaining: summarize completed sub-tasks, offload outputs to files, offer CHECKPOINT.
 
-1. Below **15%** remaining: no new sub-task. Trigger CHECKPOINT via `captureng` skill for resuming in fresh context.
+1. Below **15%** remaining: no new sub-task. Trigger CHECKPOINT creation by using `captureng` skill for resuming in fresh context.
 
 1. Never re-include saved output verbatim. Reference filename.
 
@@ -93,7 +93,7 @@ Mid-task failure modes: context exhaustion, rate limits, timeouts, network error
 
 **Checkpoint:**
 
-Partial knowledge capture. Records work, state, resume plan.
+Partial knowledge capture before completion. Records work, state, resume plan.
 
 **[RULES]**
 
@@ -141,11 +141,13 @@ Partial knowledge capture. Records work, state, resume plan.
 
 ### 2.5 Memory Precedence
 
-Governed by `agent.md` §4 (tier table + precedence rules). Detail in `claude-sp-guards.md` §1–§3. prompteng inherits from agent.md.
+Governed by `agent.md` §3 (tier table + precedence rules). Conflict surfacing, canonization, hygiene detail in `claude-sp-guards.md` §1–§3.
+
+prompteng inherits patterns from agent.md.
 
 ### 2.6 Prompt Cache Alignment
 
-Platform caches automatically. Every message re-transmits: tools + SP + Personal Preferences (`agent.md`) + project instructions + history. Prefix computation reused at ~10% cost. **TTL: 5 min.** Gap > 5 min → cache expires; next message pays full write.
+Platform applies prompt caching automatically. Every message re-transmits: tools + system prompt + Personal Preferences (`agent.md`) + project instructions + history. Cache stores prefix computation; reused at ~10% input cost. **TTL: 5 min.** Gaps over 5 min → cache expires; next message pays full write.
 
 Prefix order: **tools → system prompt → messages**. Earliest + stable content benefits most.
 
@@ -157,11 +159,11 @@ Prefix order: **tools → system prompt → messages**. Earliest + stable conten
 
 1. `agent.md` + project instructions ride system-prompt cache free after first message. Correct location for system-wide directives.
 
-1. File registry + re-read protocol (`agent.md` §2–§3) keep cacheable prefix stable.
+1. File registry + re-read protocol (`agent.md` §1–§2) keep cacheable prefix stable.
 
 **[ACTIONS]**
 
-1. Don't warn on pause preemptively. If user reports high usage or slow responses post-break, cite 5-min TTL. Offer user the option to plan steps for rapid sequential execution using cached items.
+1. Don't warn on pause preemptively. If user reports high usage or slow responses post-break, cite 5-min TTL. Offer user the option to plan steps for rapid sequential execution using cached items. 
 
 ---
 
@@ -186,21 +188,21 @@ Ref: Liam Barnes, "How to Set Up ChatGPT, Claude & Gemini for Legal Work" — ht
 
 ### 4.1 Glossary
 
-**Chat** — single conversation thread. One chat = one context window = one cached-prefix set. History not shared across project chats.
+**Chat** — single conversation thread. Atomic interaction unit. One chat = one context window = one cached-prefix set. Chats within a project don't share history.
 
-**Session** — working period within a chat, init through checkpoint or completion. 1:1 with chat. Adds registry, snapshots, checkpoints, budget monitoring, conflict scanning.
+**Session** — one working period within a chat, from init through checkpoint or completion. Maps 1:1 to chat. Adds registry, state snapshot, checkpoints, budget monitoring, conflict scanning.
 
-**Project** — container for chats, shared knowledge, custom instructions. Knowledge + instructions persist; histories don't.
+**Project** — container grouping chats, shared knowledge files, custom instructions. Knowledge + instructions persist across chats; individual histories don't cross.
 
-**Usage window** — Anthropic billing period. Rolling reset; Pro ~5–8 hr, Max weekly. Platform-level. Limits stated relatively (e.g., "5× Free"); no published token budgets.
+**Usage window** — Anthropic billing period. Rolling reset; cadence varies by plan (Pro ~5–8 hr, Max weekly). Platform-level, not tied to any chat / session / project. Limits stated relatively (e.g., "5× Free") without published token budgets.
 
-**Context window** — max tokens per exchange: SP + Personal Preferences + project instructions + history + current message. Opus 4.7 = 200k tok; 1M extended. Per-chat.
+**Context window** — max tokens per message exchange: system prompt + Personal Preferences + project instructions + history + current message. Opus 4.7 standard = 200k tokens; 1M extended at premium. Per-chat, not shared.
 
-**Prompt cache** — platform optimization. Prefix computation reused at ~10% cost. 5-min TTL. See §2.6.
+**Prompt cache** — platform optimization. Stores prefix computation; reused at ~10% input cost. 5-min TTL. See §2.6.
 
 ### 4.2 Project
 
-Folder for chats, instructions, files. Foundation for human-agent output.
+Folder grouping related chats, instructions, files. Tractable, traceable foundation for human–agent output.
 
 ### 4.3 Project Files
 
@@ -222,7 +224,7 @@ Injected at platform level, invisible in UI. Personal Preferences also implicit.
 
 ## 5. 7-Part Prompt Framework
 
-Seven optional fields. Omit when N/A.
+Seven optional fields. Omit when genuinely N/A.
 
 ### 5.1 Fields
 
@@ -256,7 +258,7 @@ See [`references/prompteng-examples.md`](references/prompteng-examples.md):
 
 ### 6.1 Why
 
-No native cross-session memory. Explicit saves preserve continuity.
+Chats have no native cross-session memory. Explicit saves preserve continuity across sessions and agents.
 
 ### 6.2 Formats
 
@@ -277,7 +279,7 @@ Agent offers at task completion:
 3. **Save design pattern** — reusable structure in named MD / JSON.
 4. **Export session state** — snapshot of vars, decisions, outputs.
 
-> `pickle` equivalent — safe, human-readable, auditable.
+> **Analogy:** Python `pickle` equivalent — safe, human-readable, auditable.
 
 ---
 
@@ -294,7 +296,7 @@ Agent offers at task completion:
 
 ## 8. IP
 
-Customized settings, frameworks, and skill definitions created by the human user are **Intellectual Property**. Consult your agent on protection and monetization.
+Customized prompt-engineering settings, frameworks, and skill definitions created by the human user are that user's **Intellectual Property**. Consult your agent on jurisdiction-specific protection and monetization.
 
 ---
 
