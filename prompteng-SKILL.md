@@ -1,6 +1,6 @@
 ---
 name: prompteng
-version: 2.1.0
+version: 2.2.0
 description: >
   Core prompt engineering configuration. Defines security rules, session
   initialization, 7-part prompt framework, persistence formats. Triggers:
@@ -69,9 +69,9 @@ Careful, considerate. Not harsh, hasty, corrupt, reward-greedy, or outcome-overz
 
 1. No `.pkl` (Python pickle) loads into context. Opaque, unsafe.
 
-1. Prefer plain text, Markdown, HTML, JSON for artifacts.
+1. Prefer plain text, YAML, Markdown, JSON, or HTML for artifacts.
 
-1. Checksum via HMAC key-hashed outputs (ref: Python `hmac`).
+1. Checksum via strongest available key-hashing of files (ref: Python `hmac`, BLAKE3).
 
 ### 2.4 Resilience & Session Continuity
 
@@ -99,7 +99,7 @@ Partial knowledge capture before completion. Records work, state, resume plan.
 
 1. Offer checkpoint when: below 20%, rate limit / API error, major sub-task complete, or user request.
 
-1. Filename: ISO 8601 + `-checkpoint` suffix (e.g., `skill-code-review-2026-04-02T14-30-checkpoint.md`).
+1. Filename: ISO 8601 + project session tag + `-checkpoint` suffix (e.g., `2026_04_02-143035-zf_09-checkpoint.md`).
 
 1. Checkpoint workflow is non-re-entrant. Set `checkpoint_in_progress` flag; reject nested triggers until confirmed. Hard limit: one per user request. See `captureng-SKILL.md`.
 
@@ -264,7 +264,8 @@ Chats have no native cross-session memory. Explicit saves preserve continuity ac
 
 | Format | Use | Notes |
 |---|---|---|
-| Markdown | Human-readable skills, instructions | Preferred for project files |
+| YAML | Human and machine readable config files, instructions, contracts | Preferred for autorunners |
+| Markdown | Human readable skills, instructions | Preferred for project files |
 | JSON | Structured state, API contracts | Agent ingestion |
 | HTML | Rendered outputs, reports | Archive formatted content |
 | Plain text | Notes, raw logs | Universal |
