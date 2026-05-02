@@ -141,7 +141,7 @@ Partial knowledge capture before completion. Records work, state, resume plan.
 
 ### 2.5 Memory Precedence
 
-Governed by `agent.md` §3 (tier table + precedence rules). Conflict surfacing, canonization, hygiene detail in `claude-sp-guards.md` §1–§3.
+Governed by `agent.md` §5 (tier table + precedence rules). Conflict surfacing, canonization, hygiene detail in `claude-sp-guards.md` §1–§3.
 
 prompteng inherits patterns from agent.md.
 
@@ -159,7 +159,7 @@ Prefix order: **tools → system prompt → messages**. Earliest + stable conten
 
 1. `agent.md` + project instructions ride system-prompt cache free after first message. Correct location for system-wide directives.
 
-1. File registry + re-read protocol (`agent.md` §1–§2) keep cacheable prefix stable.
+1. File registry + re-read protocol (`agent.md` §3–§4) keep cacheable prefix stable.
 
 **[ACTIONS]**
 
