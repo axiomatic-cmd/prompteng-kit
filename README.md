@@ -55,6 +55,8 @@ Load on demand when task requires:
 - **[captureng](https://github.com/ecological-codes/captureng)** — session-knowledge capture, CHECKPOINT mode
 - **[packageng](https://github.com/ecological-codes/packageng)** — `.skill` file validation + packaging
 - **[safe-skill-creator](https://github.com/ecological-codes/safe-skill-creator)** — skill design + iteration
+- **[scribeng](https://github.com/ecological-codes/scribeng)** — agent scribe; Entire-compatible session checkpoint + sessionlog
+- **[export-memories](https://github.com/ecological-codes/export-memories)** — cross-session transcript synthesis
 
 ## Companion Files
 
